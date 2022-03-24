@@ -63,6 +63,9 @@ class SyllabusState(State):
 
     def on_event(self, event):
         
+        if str(event) == "#":
+            return WelcomeState(self.phonenumber)
+        
         return self
 
 class SermonsState(State):
@@ -77,6 +80,8 @@ class SermonsState(State):
         send_sms(self.phonenumber, menu)
 
     def on_event(self, event):
+        if str(event) == "#":
+            return WelcomeState(self.phonenumber)
         
         return SyllabusState(self.phonenumber)
 
@@ -92,6 +97,8 @@ class NewsState(State):
         send_sms(self.phonenumber, menu)
 
     def on_event(self, event):
+        if str(event) == "#":
+            return WelcomeState(self.phonenumber)
         
         return SyllabusState(self.phonenumber)
         
@@ -107,6 +114,8 @@ class DonateState(State):
         send_sms(self.phonenumber, menu)
 
     def on_event(self, event):
+        if str(event) == "#":
+            return WelcomeState(self.phonenumber)
         
         return SyllabusState(self.phonenumber)
 
@@ -122,6 +131,9 @@ class FindState(State):
         send_sms(self.phonenumber, menu)
 
     def on_event(self, event):
+
+        if str(event) == "#":
+            return WelcomeState(self.phonenumber)
         
         return SyllabusState(self.phonenumber)
 
