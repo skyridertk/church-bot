@@ -25,9 +25,9 @@ class WelcomeState(State):
         self.run()
     
     def run(self):
-        menu = "Welcome to the helpdesk\n\nFor God so loved the world that he gave his beloved son that whoever believes in him would not perish but have eternal life\n\nPlease choose\n\n1️⃣ Sermons\n2️⃣ News \n3️⃣ Give/Donate \n4️⃣ Find Church \n\nConclusion Year of Restoration"
+        menu = "Welcome to Christ embassy help desk\n\nIf clouds are full of water, they pour rain on the earth. Whether a tree falls to the south or to the north, in the place where it falls, there it will lie.Ecclesiastes 11:3\n\nPlease choose\n\n1️⃣ Sermons\n2️⃣ Ministry News \n3️⃣ Give/Donate \n4️⃣ Find Church \n5 Daily devotional \n6 Contact Us \n7 Christ embassy \n\nThis year, the clouds of prayer, faith and expectations would be full and begin to empty themselves upon the earth” — Pastor Chris Oyakhilome"
 
-        send_sms(self.phonenumber, menu)
+        send_sms(self.phonenumber, menu, "https://drive.google.com/uc?id=1qjg_VI2nNk7NJhOc9x4R-Dz_NCnPfeGA&export=download")
 
     def on_event(self, event):
         try:
@@ -62,7 +62,7 @@ class SyllabusState(State):
         send_sms(self.phonenumber, menu)
 
     def on_event(self, event):
-        
+
         if str(event) == "#":
             return WelcomeState(self.phonenumber)
         
@@ -92,7 +92,7 @@ class NewsState(State):
         self.run()
     
     def run(self):
-        menu = "Please select\n\na. Events\nb. Current\nc. Church history\n d. Structure\ne. Mission \n\nSend #️⃣ - menu"
+        menu = "Please select\n\na. Events\nb. Current\n \n\nSend #️⃣ - menu"
 
         send_sms(self.phonenumber, menu)
 
