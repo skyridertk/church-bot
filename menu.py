@@ -25,7 +25,7 @@ class WelcomeState(State):
         self.run()
     
     def run(self):
-        menu = "Welcome to Christ embassy help desk\n\nIf clouds are full of water, they pour rain on the earth. Whether a tree falls to the south or to the north, in the place where it falls, there it will lie.Ecclesiastes 11:3\n\nPlease choose\n\n1️⃣ Sermons\n2️⃣ Ministry News \n3️⃣ Give/Donate \n4️⃣ Find Church \n5 Daily devotional \n6 Contact Us \n7 Christ embassy \n\nThis year, the clouds of prayer, faith and expectations would be full and begin to empty themselves upon the earth” — Pastor Chris Oyakhilome"
+        menu = "Welcome to Christ embassy help desk\n\nZechariah 10:1 - Ask the LORD for rain in the springtime; it is the LORD who makes the storm clouds\n\nPlease choose\n\n1️⃣ Sermons\n2️⃣ Ministry News \n3️⃣ Christ Emabassy \n4️⃣Give/Donate \n5️⃣ Daily Devotional \n6️⃣Contact us \n\n*2022 \"Our Year Of The Gathering Clouds\"—Pastor Chris Oyakhilome*"
 
         send_sms(self.phonenumber, menu, "https://drive.google.com/uc?id=1qjg_VI2nNk7NJhOc9x4R-Dz_NCnPfeGA&export=download")
 
@@ -38,10 +38,16 @@ class WelcomeState(State):
                 return NewsState(self.phonenumber)
             
             elif int(event) ==3:
-                return DonateState(self.phonenumber)
+                return EmbassyState(self.phonenumber)
 
             elif int(event) ==4:
-                return FindState(self.phonenumber)
+                return DonateState(self.phonenumber)
+
+            elif int(event) ==5:
+                return SyllabusState(self.phonenumber)
+
+            elif int(event) ==6:
+                return SyllabusState(self.phonenumber)
             
             raise Exception("Invalid input")
 
@@ -67,6 +73,23 @@ class SyllabusState(State):
             return WelcomeState(self.phonenumber)
         
         return self
+
+class EmbassyState(State):
+    def __init__(self, phonenumber):
+        super().__init__("Syllabus")
+        self.phonenumber = phonenumber
+        self.run()
+    
+    def run(self):
+        menu = "Please select\n\n1️⃣ Find Church\n\nSend #️⃣ - menu"
+
+        send_sms(self.phonenumber, menu)
+
+    def on_event(self, event):
+        if str(event) == "#":
+            return WelcomeState(self.phonenumber)
+        
+        return SyllabusState(self.phonenumber)
 
 class SermonsState(State):
     def __init__(self, phonenumber):
