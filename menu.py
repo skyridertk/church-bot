@@ -25,7 +25,7 @@ class WelcomeState(State):
         self.run()
     
     def run(self):
-        menu = "Welcome to Christ embassy help desk\n\nZechariah 10:1 - Ask the LORD for rain in the springtime; it is the LORD who makes the storm clouds\n\nPlease choose\n\n1️⃣ Sermons\n2️⃣ Ministry News \n3️⃣ Christ Emabassy \n4️⃣Give/Donate \n5️⃣ Daily Devotional \n6️⃣Contact us \n\n*2022 \"Our Year Of The Gathering Clouds\"—Pastor Chris Oyakhilome*"
+        menu = "Welcome to Christ embassy help desk\n\nZechariah 10:1 - Ask the LORD for rain in the springtime; it is the LORD who makes the storm clouds\n\nPlease choose\n\n1️⃣ Sermons\n2️⃣ Ministry News \n3️⃣ Christ Embassy \n4️⃣Give/Donate \n5️⃣ Daily Devotional \n6️⃣Contact us \n\n*2022 \"Our Year Of The Gathering Clouds\"—Pastor Chris Oyakhilome*"
 
         send_sms(self.phonenumber, menu, "https://drive.google.com/uc?id=1qjg_VI2nNk7NJhOc9x4R-Dz_NCnPfeGA&export=download")
 
